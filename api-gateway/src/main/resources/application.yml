@@ -1,0 +1,21 @@
+server:
+  port: 7777
+spring:
+  application:
+    name: api-gateway
+  cloud:
+    gateway:
+#      routes:   #路由，当情况满足什么情况 的时候 转发到哪个服务
+#        - id: order_route
+#          uri: lb://order
+#          order: 1
+#          predicates:
+#            - Path=/order-service/**   #当请求满足规则的时候，触发这个路由走向
+#          filters:
+#            - StripPrefix=1  #在请求转发之前 去除掉一层路径。
+      discovery:
+        locator:
+          enabled: true
+    nacos:
+      discovery:
+        server-addr: localhost:8848
